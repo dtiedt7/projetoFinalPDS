@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import java.awt.Font;
 import javax.swing.JButton;
@@ -18,6 +19,9 @@ public class TelaLogin extends JFrame {
 	private JPanel contentPane;
 	private JTextField tfUsuario;
 	private JTextField tfSenha;
+	private String user = "usuario123";
+	private String senha = "senha123";
+	private Usuario usuario;
 
 	/**
 	 * Launch the application.
@@ -73,15 +77,19 @@ public class TelaLogin extends JFrame {
 			
 			usuario = new Usuario(tfUsuario.getText(), tfSenha.getText());	
 			
+			if (usuario.getUsuario().equals(user) && usuario.getSenha().equals(senha)) {
+				
+				JOptionPane.showMessageDialog(null, "Acesso PERMITIDO!");
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "Acesso NEGADO!");
+			}
+			
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		btnNewButton.setBounds(96, 206, 89, 23);
+		btnNewButton.setBounds(95, 201, 89, 23);
 		contentPane.add(btnNewButton);
-		
-		JButton btnNewButton_1 = new JButton("New button");
-		btnNewButton_1.setBounds(106, 239, 79, 12);
-		contentPane.add(btnNewButton_1);
 
 	}
 }
