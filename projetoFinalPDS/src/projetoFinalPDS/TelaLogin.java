@@ -71,17 +71,13 @@ public class TelaLogin extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
-			usuario = new Usuario(tfUsuario.getText(), tfSenha.getText());	
+			Usuario usuario = new Usuario(tfUsuario.getText(), tfSenha.getText());	
 			
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnNewButton.setBounds(96, 206, 89, 23);
 		contentPane.add(btnNewButton);
-		
-		JButton btnNewButton_1 = new JButton("New button");
-		btnNewButton_1.setBounds(106, 239, 79, 12);
-		contentPane.add(btnNewButton_1);
 
 	}
 }
