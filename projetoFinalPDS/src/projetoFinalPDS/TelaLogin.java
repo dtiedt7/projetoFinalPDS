@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import java.awt.Font;
 import javax.swing.JButton;
@@ -18,7 +19,8 @@ public class TelaLogin extends JFrame {
 	private JPanel contentPane;
 	private JTextField tfUsuario;
 	private JTextField tfSenha;
-
+	private String user = "abc";
+	private String senha = "123";
 	/**
 	 * Launch the application.
 	 */
@@ -47,6 +49,9 @@ public class TelaLogin extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		setResizable(false); //bloqueia redimensionar a tela
+		setLocationRelativeTo(null); //tela centralizada
+		
 		JLabel lbUsuario = new JLabel("Usuário");
 		lbUsuario.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		lbUsuario.setBounds(50, 31, 46, 14);
@@ -73,6 +78,15 @@ public class TelaLogin extends JFrame {
 			
 			Usuario usuario = new Usuario(tfUsuario.getText(), tfSenha.getText());	
 			
+			if (usuario.getUsuario().equals(user) && usuario.getSenha().equals(senha)){
+				JOptionPane.showMessageDialog(null, "Acesso OK!");
+				
+				TelaCadastroContato tela = new TelaCadastroContato();
+				tela.setVisible(true);
+				
+			}else {
+				JOptionPane.showMessageDialog(null, "Acesso NEGADO!");
+			}
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
